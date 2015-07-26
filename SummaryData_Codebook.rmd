@@ -1,0 +1,126 @@
+---
+title: "Getting and Cleaning Data Course Project Codebook"
+author: "Rachel Belyavsky"
+date: "2015-07-26"
+output:
+  txt_document: SummaryData.txt
+---
+
+## Project Description
+This project leverages data collected from the accelerometers from the Samsung Galaxy S smartphone. The script provides a summarized view of the averages of the data by subject and activity performed across all mean and standard deviation variables.
+
+##Study design and data processing
+
+###Collection of the raw data
+(From the README.txt given in the data set)
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
+
+###Notes on the original (raw) data 
+(From the README.txt given in the data set)
+Features are normalized and bounded within [-1,1].
+Each feature vector is a row on the text file.
+
+##Creating the tidy datafile
+
+###Guide to create the tidy data file
+1. Download the data
+2. Execute the run_analysis.R script
+
+###Cleaning of the data
+Test and train data is merged together with appropriate column names assigned. Data is filtered to only variables including a mean or standard deviation and then averaged for each Activity and each Subject in a summary output table. [link to the readme document that describes the code in greater detail]()
+
+##Description of the variables in the SummaryData.txt file
+180 observations of 68 variables
+Averages for each variable by Activity and Subject
+
+Variables include:
+ - Activity
+ - Subject
+ - mean and standard deviation (std) for each of the following measurements:
+      - tBodyAcc - XYZ (3 measurements)
+      - tGravityAcc - XYZ (3 measurements)
+      - tBodyAccJerk - XYZ (3 measurements)
+      - tBodyGyro - XYZ (3 measurements)
+      - tBodyGyroJerk - XYz (3 measurements)
+      - tBodyAccMag
+      - tGravityAccMag
+      - tBodyAccJerkMag
+      - tBodyGyroMag
+      - tBodyGyroJerkMag
+      - fBodyAcc - XYZ (3 measurements)
+      - fBodyAccJerk - XYZ (3 measurements)
+      - fBodyGyro - XYZ (3 measurements)
+      - fBodyAccMag
+      - fBodyAccJerkMag
+      - fBodyGyroMag
+      - fBodyGyroJerkMag
+
+###Activity
+Description of the activity performed by the subject for the given measurements
+
+###Subject
+Integer to identify unique subject
+
+###tBodyAcc- XYZ
+time - Body - Acceleration Signal
+3 variables: repeated for X, Y, Z axis
+
+###tGravityAcc- XYZ
+time - Gravity - Acceleration Signal
+3 variables: repeated for X, Y, Z axis
+
+###tBodyAccJerk- XYZ
+time - Body - Jerk signals derived in time from body linear acceleration
+3 variables: repeated for X, Y, Z axis
+
+###tBodyGyro- XYZ
+time - Body - Gyroscope signal
+3 variables: repeated for X, Y, Z axis
+
+###tBodyGyroJerk- XYZ
+time - Body - Jerk signals derived in time from body angular velocity
+3 variables: repeated for X, Y, Z axis
+
+###tBodyAccMag
+time - Body - Magnitude of the three-dimensional acceleration signals calculated using the Euclidean norm
+
+###tGravityAccMag
+time - Gravity - Magnitude of the three-dimensional acceleration signals calculated using the Euclidean norm
+
+###tBodyAccJerkMag
+time - Body - Magnitude of the three-dimensional acceleration jerk signals calculated using the Euclidean norm
+
+###tBodyGyroMag
+time - Body - Magnitude of the three-dimensional angular velocity signals calculated using the Euclidean norm
+
+###tBodyGyroJerkMag
+time - Body - Magnitude of the three-dimensional angular velocity jerk signals calculated using the Euclidean norm
+
+###fBodyAcc- XYZ
+frequency - Body - Acceleration Signal produced by applying a Fast Fourier Transform (FFT)
+3 variables: repeated for X, Y, Z axis
+
+###fBodyAccJerk- XYZ
+frequency - Body - Jerk signals derived in time from body linear acceleration produced by applying a Fast Fourier Transform (FFT)
+3 variables: repeated for X, Y, Z axis
+
+###fBodyGyro- XYZ
+frequency - Body - Gyroscope signal produced by applying a Fast Fourier Transform (FFT)
+3 variables: repeated for X, Y, Z axis
+
+###fBodyAccMag
+frequency - Body - Magnitude of the three-dimensional acceleration signals produced by applying a Fast Fourier Transform (FFT) calculated using the Euclidean norm 
+
+###fBodyAccJerkMag
+frequency - Body - Magnitude of the three-dimensional acceleration jerk signals produced by applying a Fast Fourier Transform (FFT) calculated using the Euclidean norm
+
+###fBodyGyroMag
+frequency - Body - Magnitude of the three-dimensional angular velocity signals produced by applying a Fast Fourier Transform (FFT) calculated using the Euclidean norm
+
+###fBodyGyroJerkMag
+frequency - Body - Magnitude of the three-dimensional angular velocity jerk signals produced by applying a Fast Fourier Transform (FFT) calculated using the Euclidean norm
+
+##Sources
+Original README file in the given data set
