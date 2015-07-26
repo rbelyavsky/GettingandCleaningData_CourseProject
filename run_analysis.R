@@ -1,15 +1,19 @@
 ## Read in all required data files
-setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/Getting&Cleaning_CourseProject/UCI HAR Dataset/test")
+setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/GettingCleaning_CourseProject/UCI HAR Dataset/test")
 testSUBJ <- read.table("subject_test.txt")
 testdata <- read.table("X_test.txt")
 testAct <- read.table("y_test.txt")
-setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/Getting&Cleaning_CourseProject/UCI HAR Dataset/train")
+setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/GettingCleaning_CourseProject/UCI HAR Dataset/train")
 trainSUBJ <- read.table("subject_train.txt")
 traindata <- read.table("X_train.txt")
 trainAct <- read.table("y_train.txt")
-setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/Getting&Cleaning_CourseProject/UCI HAR Dataset")
+setwd("C:/Users/rbelyavsky/Documents/datasciencecoursera/GettingCleaning_CourseProject/UCI HAR Dataset")
 activities <- read.table("activity_labels.txt") 
 features <- read.table("features.txt")
+
+## Load the packages necessary for the script
+library(dplyr)
+library(reshape2)
 
 ## Merge all data together and assign column names
 
@@ -55,7 +59,9 @@ dataMelt <- melt(newdata,id=c("Subject","Activity"),measure.vars=4:69)
 
 ## Summarize the data by the mean for each Activity and Subject
 sumData <- dcast(dataMelt, Activity+Subject~variable,mean)
-
+## Make column names valid
+newColNames <- make.names(names(sumData),unique=TRUE)
+colnames(sumData) <- newColNames
 
 
 
