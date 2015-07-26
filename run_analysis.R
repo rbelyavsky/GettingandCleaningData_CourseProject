@@ -45,7 +45,7 @@ means <- data[,grep("mean()",names(data),ignore.case=TRUE,fixed=TRUE)]
 stds <- data[,grep("std()",names(data),ignore.case=TRUE,fixed=TRUE)]
 
 ## Extract the first 3 columns of the dataset
-info <- data[,c(1,2,564)]
+info <- data[,c(2,564)]
 
 ## Merge all 3 subsets together
 newdata <- cbind(info,means,stds)
@@ -55,7 +55,7 @@ newdata <- cbind(info,means,stds)
 
 ## Create a tall skinny data set which creates a new row for
 ## each value of each variable
-dataMelt <- melt(newdata,id=c("Subject","Activity"),measure.vars=4:69)
+dataMelt <- melt(newdata,id=c("Subject","Activity"),measure.vars=3:68)
 
 ## Summarize the data by the mean for each Activity and Subject
 sumData <- dcast(dataMelt, Activity+Subject~variable,mean)

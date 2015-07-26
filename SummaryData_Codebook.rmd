@@ -59,9 +59,10 @@ Variables include:
 
 ###Activity
 Description of the activity performed by the subject for the given measurements
+Factor variable including 6 levels: Walking, Walking_Upstairs, Walking_Downstairs, Sitting, Standing, Laying
 
 ###Subject
-Integer to identify unique subject
+Integer to identify unique subject (1-30)
 
 ###tBodyAcc- XYZ
 time - Body - Acceleration Signal
